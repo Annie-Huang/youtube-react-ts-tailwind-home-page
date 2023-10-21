@@ -14,3 +14,11 @@ PS C:\react> npm create vite@latest youtube-react-ts-tailwind-home-page -- --tem
 PS C:\react\youtube-react-ts-tailwind-home-page> npm install -D tailwindcss postcss autoprefixer
 PS C:\react\youtube-react-ts-tailwind-home-page> npx tailwindcss init -p
 PS C:\react\youtube-react-ts-tailwind-home-page> npm i lucide-react
+PS C:\react\youtube-react-ts-tailwind-home-page> npm install class-variance-authority tailwind-merge
+
+
+
+
+
+
+
