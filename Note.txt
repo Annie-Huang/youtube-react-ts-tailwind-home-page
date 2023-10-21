@@ -6,6 +6,8 @@ https://github.com/Annie-Huang/youtube-react-ts-tailwind-home-page
 
 https://vitejs.dev/guide/
 https://tailwindcss.com/docs/guides/vite
+https://lucide.dev/guide/packages/lucide-react
+
 =============================================================================================
 
 PS C:\react> npm create vite@latest youtube-react-ts-tailwind-home-page -- --template react-ts
