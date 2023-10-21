@@ -1,0 +1,12 @@
+How To Create The YouTube Home Page With Tailwind, React, and TypeScript
+(https://www.youtube.com/watch?v=ymGB1lqP1CM)
+
+https://github.com/WebDevSimplified/youtube-react-ts-tailwind-home-page
+https://github.com/Annie-Huang/youtube-react-ts-tailwind-home-page
+
+https://vitejs.dev/guide/
+https://tailwindcss.com/docs/guides/vite
+=============================================================================================
+
+PS C:\react> npm create vite@latest youtube-react-ts-tailwind-home-page -- --template react-ts
+PS C:\react\youtube-react-ts-tailwind-home-page> npm install -D tailwindcss postcss autoprefixer
