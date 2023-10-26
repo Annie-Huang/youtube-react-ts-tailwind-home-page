@@ -21,10 +21,10 @@ const buttonStyles = cva(['transition-colors'], {
         'p-2.5',
       ],
     },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
   },
 });
 
