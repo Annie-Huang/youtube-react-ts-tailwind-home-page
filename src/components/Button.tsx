@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { cva, VariantProps } from 'class-variance-authority';
 
 // secondary-hover is defined in tailwind.config.js, surprised tailwind can just add 'bg-' in front.
 const buttonStyles = cva(['transition-colors'], {
@@ -23,6 +23,8 @@ const buttonStyles = cva(['transition-colors'], {
   },
 });
 
-export const Button = ({ variant, size }) => {
+type ButtonProps = VariantProps<typeof buttonStyles>;
+
+export const Button = ({ variant, size }: ButtonProps) => {
   return <button className={buttonStyles({ variant, size })} />;
 };
