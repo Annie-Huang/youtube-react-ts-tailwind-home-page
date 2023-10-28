@@ -21,8 +21,8 @@ export const PageHeader = () => {
         </a>
       </div>
       <form
-        className={`md:flex gap-4 flex-grow justify-center ${
-          showFullWidthSearch ? 'flex' : 'hidden'
+        className={`gap-4 flex-grow justify-center ${
+          showFullWidthSearch ? 'flex' : 'hidden md:flex'
         }`}
       >
         <div className='flex flex-grow max-w-[600px]'>
