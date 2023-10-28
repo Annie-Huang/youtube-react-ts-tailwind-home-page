@@ -1,5 +1,6 @@
 import { PageHeader } from './layout/PageHeader.tsx';
 import { CategoryPills } from './components/CategoryPills.tsx';
+import { categories } from './data/home.ts';
 
 export default function App() {
   return (
