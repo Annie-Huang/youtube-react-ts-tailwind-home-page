@@ -13,7 +13,7 @@ export const PageHeader = () => {
           <img src={logo} alt='logo' className='h-6' />
         </a>
       </div>
-      <form className='flex gap-4 flex-grow justify-center'>
+      <form className='md:flex hidden gap-4 flex-grow justify-center'>
         <div className='flex flex-grow max-w-[600px]'>
           {/* The input will shrink as the screen gets small, and grow as the screen grows to a max 600px width */}
           <input
