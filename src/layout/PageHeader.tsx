@@ -30,6 +30,9 @@ export const PageHeader = () => {
         </Button>
       </form>
       <div className='flex flex-shrink-0 md:gap-2'>
+        <Button variant='ghost' size='icon' className='md:hidden'>
+          <Search />
+        </Button>
         <Button variant='ghost' size='icon'>
           <Upload />
         </Button>
