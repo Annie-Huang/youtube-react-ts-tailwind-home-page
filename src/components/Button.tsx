@@ -1,5 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { ComponentProps } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 // secondary-hover is defined in tailwind.config.js, surprised tailwind can just add 'bg-' in front.
 const buttonStyles = cva(['transition-colors'], {
@@ -30,6 +31,11 @@ const buttonStyles = cva(['transition-colors'], {
 
 type ButtonProps = VariantProps<typeof buttonStyles> & ComponentProps<'button'>;
 
-export const Button = ({ variant, size, ...props }: ButtonProps) => {
-  return <button {...props} className={buttonStyles({ variant, size })} />;
+export const Button = ({ variant, size, className, ...props }: ButtonProps) => {
+  return (
+    <button
+      {...props}
+      className={twMerge(buttonStyles({ variant, size }), className)}
+    />
+  );
 };
