@@ -17,6 +17,7 @@ PS C:\react\youtube-react-ts-tailwind-home-page> npm i lucide-react
 PS C:\react\youtube-react-ts-tailwind-home-page> npm install class-variance-authority tailwind-merge
 
 
+Very happy to see how to create the Header step by step...
 
 
 
