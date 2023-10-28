@@ -1,5 +1,5 @@
 import logo from '../assets/Logo.png';
-import { Bell, Menu, Mic, Upload, User } from 'lucide-react';
+import { Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
 import { Button } from '../components/Button.tsx';
 
 export const PageHeader = () => {
@@ -14,7 +14,16 @@ export const PageHeader = () => {
         </a>
       </div>
       <form className='flex gap-4 flex-grow justify-center'>
-        <div></div>
+        <div className='flex flex-grow max-w-[600px]'>
+          <input
+            type='search'
+            placeholder='Search'
+            className='rounded-l-full border border-secondary-border shadow-inner shadow-secondary'
+          />
+          <Button>
+            <Search />
+          </Button>
+        </div>
         <Button type='button' size='icon'>
           <Mic />
         </Button>
