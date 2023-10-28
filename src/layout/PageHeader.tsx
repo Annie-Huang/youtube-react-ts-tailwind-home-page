@@ -1,5 +1,5 @@
 import logo from '../assets/Logo.png';
-import { Bell, Menu, Upload, User } from 'lucide-react';
+import { Bell, Menu, Mic, Upload, User } from 'lucide-react';
 import { Button } from '../components/Button.tsx';
 
 export const PageHeader = () => {
@@ -13,7 +13,12 @@ export const PageHeader = () => {
           <img src={logo} alt='logo' className='h-6' />
         </a>
       </div>
-      <div></div>
+      <form className='flex gap-4 flex-grow justify-center'>
+        <div></div>
+        <Button type='button' size='icon'>
+          <Mic />
+        </Button>
+      </form>
       <div className='flex flex-shrink-0 md:gap-2'>
         <Button variant='ghost' size='icon'>
           <Upload />
