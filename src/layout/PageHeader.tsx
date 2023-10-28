@@ -25,15 +25,17 @@ export const PageHeader = () => {
           showFullWidthSearch ? 'flex' : 'hidden md:flex'
         }`}
       >
-        <Button
-          onClick={() => setShowFullWidthSearch(false)}
-          type='button'
-          size='icon'
-          variant='ghost'
-          className='flex-shrink-0'
-        >
-          <ArrowLeft />
-        </Button>
+        {showFullWidthSearch && (
+          <Button
+            onClick={() => setShowFullWidthSearch(false)}
+            type='button'
+            size='icon'
+            variant='ghost'
+            className='flex-shrink-0'
+          >
+            <ArrowLeft />
+          </Button>
+        )}
         <div className='flex flex-grow max-w-[600px]'>
           {/* The input will shrink as the screen gets small, and grow as the screen grows to a max 600px width */}
           <input
