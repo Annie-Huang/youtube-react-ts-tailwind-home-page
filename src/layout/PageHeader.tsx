@@ -15,12 +15,13 @@ export const PageHeader = () => {
       </div>
       <form className='flex gap-4 flex-grow justify-center'>
         <div className='flex flex-grow max-w-[600px]'>
+          {/* The input will shrink as the screen gets small, and grow as the screen grows to a max 600px width */}
           <input
             type='search'
             placeholder='Search'
             className='rounded-l-full border border-secondary-border shadow-inner shadow-secondary py-1 px-4 text-lg w-full focus:border-blue-500 outline-none'
           />
-          <Button>
+          <Button className='py-2 px-4 rounded-r-full border-secondary-border border border-l-0 flex-shrink-0'>
             <Search />
           </Button>
         </div>
