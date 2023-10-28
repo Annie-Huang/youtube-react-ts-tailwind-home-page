@@ -33,6 +33,9 @@ export const PageHeader = () => {
         <Button variant='ghost' size='icon' className='md:hidden'>
           <Search />
         </Button>
+        <Button variant='ghost' size='icon' className='md:hidden'>
+          <Mic />
+        </Button>
         <Button variant='ghost' size='icon'>
           <Upload />
         </Button>
