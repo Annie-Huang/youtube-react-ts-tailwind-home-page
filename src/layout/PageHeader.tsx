@@ -1,5 +1,5 @@
 import logo from '../assets/Logo.png';
-import { Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
+import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
 import { Button } from '../components/Button.tsx';
 import { useState } from 'react';
 
@@ -25,6 +25,15 @@ export const PageHeader = () => {
           showFullWidthSearch ? 'flex' : 'hidden md:flex'
         }`}
       >
+        <Button
+          onClick={() => setShowFullWidthSearch(false)}
+          type='button'
+          size='icon'
+          variant='ghost'
+          className='flex-shrink-0'
+        >
+          <ArrowLeft />
+        </Button>
         <div className='flex flex-grow max-w-[600px]'>
           {/* The input will shrink as the screen gets small, and grow as the screen grows to a max 600px width */}
           <input
@@ -36,7 +45,7 @@ export const PageHeader = () => {
             <Search />
           </Button>
         </div>
-        <Button type='button' size='icon'>
+        <Button type='button' size='icon' className='flex-shrink-0'>
           <Mic />
         </Button>
       </form>
