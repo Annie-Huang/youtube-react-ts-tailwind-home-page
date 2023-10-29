@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import { ChevronLeft } from 'lucide-react';
 
 type CategoryPillProps = {
   categories: string[];
@@ -24,6 +25,16 @@ export const CategoryPills = ({
             {category}
           </Button>
         ))}
+      </div>
+
+      <div>
+        <Button
+          variant='ghost'
+          size='icon'
+          className='h-full aspect-square w-auto p-1.5'
+        >
+          <ChevronLeft />
+        </Button>
       </div>
     </div>
   );

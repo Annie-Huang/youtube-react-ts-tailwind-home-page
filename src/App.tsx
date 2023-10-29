@@ -13,7 +13,7 @@ export default function App() {
         <div>Sidebar</div>
 
         {/* Hide the horizontal scroll bar */}
-        <div className='overflow-x-hidden'>
+        <div className='overflow-x-hidden px-8 pb-4'>
           <div className='sticky top-0 bg-white z-10 pb-4'>
             <CategoryPills
               categories={categories}
