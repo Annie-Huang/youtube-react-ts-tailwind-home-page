@@ -15,13 +15,16 @@ export const CategoryPills = ({
   selectedCategory,
   onSelect,
 }: CategoryPillProps) => {
-  const [translate, setTranslate] = useState(0);
-  const [isLeftVisible, setIsLeftVisible] = useState(false);
+  const [translate, setTranslate] = useState(300);
+  const [isLeftVisible, setIsLeftVisible] = useState(true);
   const [isRightVisible, setIsRightVisible] = useState(false);
 
   return (
     <div className='overflow-x-hidden relative'>
-      <div className='flex whitespace-nowrap gap-3 transition-transform w-[max-content]'>
+      <div
+        className='flex whitespace-nowrap gap-3 transition-transform w-[max-content]'
+        style={{ transform: `translateX(-${translate}px)` }}
+      >
         {categories.map((category) => (
           <Button
             key={category}
