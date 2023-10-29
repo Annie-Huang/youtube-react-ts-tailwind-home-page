@@ -1,6 +1,6 @@
 import { Button } from './Button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 type CategoryPillProps = {
   categories: string[];
@@ -15,12 +15,14 @@ export const CategoryPills = ({
   selectedCategory,
   onSelect,
 }: CategoryPillProps) => {
-  const [translate, setTranslate] = useState(300);
-  const [isLeftVisible, setIsLeftVisible] = useState(true);
-  const [isRightVisible, setIsRightVisible] = useState(false);
+  const [translate, setTranslate] = useState(0);
+  const [isLeftVisible, setIsLeftVisible] = useState(false);
+  const [isRightVisible, setIsRightVisible] = useState(true);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className='overflow-x-hidden relative'>
+    <div ref={containerRef} className='overflow-x-hidden relative'>
       <div
         className='flex whitespace-nowrap gap-3 transition-transform w-[max-content]'
         style={{ transform: `translateX(-${translate}px)` }}
@@ -64,6 +66,20 @@ export const CategoryPills = ({
             variant='ghost'
             size='icon'
             className='h-full aspect-square w-auto p-1.5'
+            onClick={() => {
+              setTranslate((translate) => {
+                if (containerRef.current === null) return translate;
+
+                const newTranslate = translate + TRANSLATE_AMOUNT;
+                const edge = containerRef.current.scrollWidth; // the entire scrollable width
+                const width = containerRef.current.clientWidth; // the current visible width on the screen
+
+                if (newTranslate + width >= edge) {
+                  return edge - width;
+                }
+                return newTranslate;
+              });
+            }}
           >
             <ChevronRight />
           </Button>
