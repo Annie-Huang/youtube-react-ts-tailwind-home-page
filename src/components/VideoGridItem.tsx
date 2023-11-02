@@ -30,6 +30,9 @@ const VideoGridItem = ({
           src={thumbnailUrl}
           className='block w-full h-full object-cover rounded-xl'
         />
+        <span className='absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-0.5 rounded'>
+          {duration}
+        </span>
       </a>
     </div>
   );
