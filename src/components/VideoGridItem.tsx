@@ -23,7 +23,16 @@ const VideoGridItem = ({
   thumbnailUrl,
   videoUrl,
 }: VideoGridItemProps) => {
-  return <div></div>;
+  return (
+    <div className='flex flex-col gap-2'>
+      <a href={`/watch?v=${id}`} className='relative aspect-video'>
+        <img
+          src={thumbnailUrl}
+          className='block w-full h-full object-cover rounded-xl'
+        />
+      </a>
+    </div>
+  );
 };
 
 export default VideoGridItem;
