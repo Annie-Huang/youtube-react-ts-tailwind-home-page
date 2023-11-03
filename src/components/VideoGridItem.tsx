@@ -1,4 +1,5 @@
 import { formatDuration } from '../utils/formatDuration.ts';
+import { formatTimeAgo } from '../utils/formatTimeAgo.ts';
 
 type VideoGridItemProps = {
   id: string;
@@ -14,6 +15,10 @@ type VideoGridItemProps = {
   thumbnailUrl: string;
   videoUrl: string;
 };
+
+const VIEW_FORMATTER = new Intl.NumberFormat(undefined, {
+  notation: 'compact',
+});
 
 const VideoGridItem = ({
   id,
@@ -47,6 +52,9 @@ const VideoGridItem = ({
           <a href={`/@${channel.id}`} className='text-secondary-text text-sm'>
             {channel.name}
           </a>
+          <div className='text-secondary-text text-sm'>
+            {VIEW_FORMATTER.format(views)} Views • {formatTimeAgo(postedAt)}
+          </div>
         </div>
       </div>
     </div>
