@@ -36,6 +36,15 @@ const VideoGridItem = ({
           {formatDuration(duration)}
         </span>
       </a>
+      <div className='flex gap-2'>
+        <a href={`/@${channel.id}`} className='flex-shrink-0'>
+          <img
+            className='w-12 h-12 rounded-full'
+            src={channel.profileUrl}
+            alt=''
+          />
+        </a>
+      </div>
     </div>
   );
 };
