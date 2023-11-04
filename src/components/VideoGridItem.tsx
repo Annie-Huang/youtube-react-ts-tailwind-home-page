@@ -1,5 +1,6 @@
 import { formatDuration } from '../utils/formatDuration.ts';
 import { formatTimeAgo } from '../utils/formatTimeAgo.ts';
+import { useEffect, useRef, useState } from 'react';
 
 type VideoGridItemProps = {
   id: string;
@@ -30,6 +31,20 @@ const VideoGridItem = ({
   thumbnailUrl,
   videoUrl,
 }: VideoGridItemProps) => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current === null) return;
+
+    if (isVideoPlaying) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isVideoPlaying]);
+
   return (
     <div className='flex flex-col gap-2'>
       <a href={`/watch?v=${id}`} className='relative aspect-video'>
