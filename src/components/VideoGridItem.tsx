@@ -46,7 +46,11 @@ const VideoGridItem = ({
   }, [isVideoPlaying]);
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div
+      className='flex flex-col gap-2'
+      onMouseEnter={() => setIsVideoPlaying(true)}
+      onMouseLeave={() => setIsVideoPlaying(false)}
+    >
       <a href={`/watch?v=${id}`} className='relative aspect-video'>
         <img
           src={thumbnailUrl}
