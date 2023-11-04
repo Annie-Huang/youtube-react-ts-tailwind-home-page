@@ -45,6 +45,11 @@ const VideoGridItem = ({
     }
   }, [isVideoPlaying]);
 
+  /* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+    playsinline - A Boolean attribute indicating that the video is to be played "inline",
+    that is within the element's playback area. Note that the absence of this attribute does not imply
+    that the video will always be played in fullscreen.
+  */
   return (
     <div
       className='flex flex-col gap-2'
@@ -56,9 +61,18 @@ const VideoGridItem = ({
           src={thumbnailUrl}
           className='block w-full h-full object-cover rounded-xl'
         />
-        <span className='absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-0.5 rounded'>
+        <div className='absolute bottom-1 right-1 bg-secondary-dark text-secondary text-sm px-0.5 rounded'>
           {formatDuration(duration)}
-        </span>
+        </div>
+        <video
+          className={`block h-full object-cover absolute inset-0 transition-opacity duration-200 ${
+            isVideoPlaying ? 'opacity-100' : 'opacity-0'
+          }`}
+          ref={videoRef}
+          muted
+          playsInline
+          src={videoUrl}
+        ></video>
       </a>
       <div className='flex gap-2'>
         <a href={`/@${channel.id}`} className='flex-shrink-0'>
