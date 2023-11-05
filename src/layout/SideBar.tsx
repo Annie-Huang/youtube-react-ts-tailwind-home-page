@@ -44,6 +44,11 @@ function SmallSidebarItem({ Icon, title, url }: SmallSidebarItemProps) {
     </a>
   );
 }
+
+function LargeSidebarSection({ children }) {
+  return children;
+}
+
 type LargeSidebarItemProps = {
   Icon: ElementType;
   title: string;
@@ -61,7 +66,9 @@ function LargeSidebarItem({
       href={url}
       className={twMerge(
         buttonStyles({ variant: 'ghost' }),
-        'w-full flex items-center rounded-lg gap-4 p-3'
+        `w-full flex items-center rounded-lg gap-4 p-3 ${
+          isActive ? 'font-bold bg-neutral-100 hover:bg-secondary' : undefined
+        }`
       )}
     >
       <Icon className='w-6 h-6' />
