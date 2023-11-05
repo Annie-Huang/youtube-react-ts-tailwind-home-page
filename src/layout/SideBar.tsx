@@ -1,5 +1,5 @@
 import { Clapperboard, Home, Library, Repeat } from 'lucide-react';
-import { Children, ElementType, ReactNode } from 'react';
+import { Children, ElementType, ReactNode, useState } from 'react';
 import { buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -57,9 +57,15 @@ function LargeSidebarSection({
   title,
   visibleItemCount = Number.POSITIVE_INFINITY,
 }: LargeSidebarSectionProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   // Not sure why we need to create an array and then flatten it again...
   const childrenArray = Children.toArray(children).flat();
-  const visibleChildren = childrenArray.slice(0, visibleItemCount);
+
+  const showExpandButton = childrenArray.length > visibleItemCount;
+  const visibleChildren = isExpanded
+    ? childrenArray
+    : childrenArray.slice(0, visibleItemCount);
 
   return (
     <div>
