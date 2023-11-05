@@ -1,6 +1,13 @@
-import { Clapperboard, Home, Library, Repeat } from 'lucide-react';
+import {
+  ChevronDown,
+  ChevronUp,
+  Clapperboard,
+  Home,
+  Library,
+  Repeat,
+} from 'lucide-react';
 import { Children, ElementType, ReactNode, useState } from 'react';
-import { buttonStyles } from '../components/Button.tsx';
+import { Button, buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
 
 export const SideBar = () => {
@@ -66,11 +73,22 @@ function LargeSidebarSection({
   const visibleChildren = isExpanded
     ? childrenArray
     : childrenArray.slice(0, visibleItemCount);
+  const ButtonIcon = isExpanded ? ChevronUp : ChevronDown;
 
   return (
     <div>
       {title && <div className='ml-4 mt-2 text-lg mb-1'>{title}</div>}
       {visibleChildren}
+      {showExpandButton && (
+        <Button
+          onClick={() => setIsExpanded((e) => !e)}
+          variant='ghost'
+          className='w-full flex items-center rounded-lg gap-4 p-3'
+        >
+          <ButtonIcon className='w-6 h-6' />
+          <div>{isExpanded ? 'Show Less' : 'Show More'}</div>
+        </Button>
+      )}
     </div>
   );
 }
