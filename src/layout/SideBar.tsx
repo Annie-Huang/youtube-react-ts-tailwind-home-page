@@ -44,3 +44,30 @@ function SmallSidebarItem({ Icon, title, url }: SmallSidebarItemProps) {
     </a>
   );
 }
+type LargeSidebarItemProps = {
+  Icon: ElementType;
+  title: string;
+  url: string;
+  isActive?: boolean;
+};
+function LargeSidebarItem({
+  Icon,
+  title,
+  url,
+  isActive = false,
+}: LargeSidebarItemProps) {
+  return (
+    <a
+      href={url}
+      className={twMerge(
+        buttonStyles({ variant: 'ghost' }),
+        'w-full flex items-center rounded-lg gap-4 p-3'
+      )}
+    >
+      <Icon className='w-6 h-6' />
+      <span className='whitespace-nowrap overflow-hidden text-ellipsis'>
+        {title}
+      </span>
+    </a>
+  );
+}
