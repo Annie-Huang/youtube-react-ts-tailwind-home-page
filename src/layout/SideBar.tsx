@@ -1,4 +1,4 @@
-import { Home } from 'lucide-react';
+import { Clapperboard, Home, Library, Repeat } from 'lucide-react';
 import { ElementType } from 'react';
 import { buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
@@ -7,6 +7,13 @@ export const SideBar = () => {
   return (
     <aside className='sticky top-0 overflow-y-auto scrollbar-hidden pb-4 flex flex-col ml-1 lg:hidden'>
       <SmallSidebarItem Icon={Home} title='Home' url='/' />
+      <SmallSidebarItem Icon={Repeat} title='Shorts' url='/shorts' />
+      <SmallSidebarItem
+        Icon={Clapperboard}
+        title='Subscriptions'
+        url='/subscriptions'
+      />
+      <SmallSidebarItem Icon={Library} title='Library' url='/library' />
     </aside>
   );
 };
