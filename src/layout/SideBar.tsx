@@ -1,5 +1,5 @@
 import { Clapperboard, Home, Library, Repeat } from 'lucide-react';
-import { ElementType } from 'react';
+import { Children, ElementType, ReactNode } from 'react';
 import { buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -17,8 +17,9 @@ export const SideBar = () => {
         <SmallSidebarItem Icon={Library} title='Library' url='/library' />
       </aside>
       <aside className='w-56 lg:sticky absolute top-0 overflow-y-auto scrollbar-hidden pb-4 flex-col gap-2 px-2 flex'>
-        <LargeSidebarSection>
+        <LargeSidebarSection visibleItemCount={1} title='Hi'>
           <LargeSidebarItem isActive Icon={Home} title='Home' url='/' />
+          <LargeSidebarItem Icon={Home} title='Home' url='/' />
         </LargeSidebarSection>
       </aside>
     </>
@@ -45,8 +46,27 @@ function SmallSidebarItem({ Icon, title, url }: SmallSidebarItemProps) {
   );
 }
 
-function LargeSidebarSection({ children }) {
-  return children;
+type LargeSidebarSectionProps = {
+  children: ReactNode;
+  title?: string;
+  visibleItemCount?: number;
+};
+
+function LargeSidebarSection({
+  children,
+  title,
+  visibleItemCount = Number.POSITIVE_INFINITY,
+}: LargeSidebarSectionProps) {
+  // Not sure why we need to create an array and then flatten it again...
+  const childrenArray = Children.toArray(children).flat();
+  const visibleChildren = childrenArray.slice(0, visibleItemCount);
+
+  return (
+    <div>
+      {title && <div className='ml-4 mt-2 text-lg mb-1'>{title}</div>}
+      {visibleChildren}
+    </div>
+  );
 }
 
 type LargeSidebarItemProps = {
