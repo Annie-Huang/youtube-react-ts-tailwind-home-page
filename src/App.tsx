@@ -3,7 +3,7 @@ import { CategoryPills } from './components/CategoryPills.tsx';
 import { categories, videos } from './data/home.ts';
 import { useState } from 'react';
 import VideoGridItem from './components/VideoGridItem.tsx';
-import SideBar from './layout/SideBar.tsx';
+import { SideBar } from './layout/SideBar.tsx';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
