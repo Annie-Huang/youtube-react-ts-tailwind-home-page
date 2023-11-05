@@ -1,5 +1,7 @@
 import { Home } from 'lucide-react';
 import { ElementType } from 'react';
+import { buttonStyles } from '../components/Button.tsx';
+import { twMerge } from 'tailwind-merge';
 
 export const SideBar = () => {
   return (
@@ -16,7 +18,13 @@ type SmallSidebarItemProps = {
 };
 function SmallSidebarItem({ Icon, title, url }: SmallSidebarItemProps) {
   return (
-    <a href={url} className=''>
+    <a
+      href={url}
+      className={twMerge(
+        buttonStyles({ variant: 'ghost' }),
+        'py-4 px-1 flex flex-col items-center rounded-lg gap-1'
+      )}
+    >
       <Icon className='w-6 h-6' />
       <span className='text-sm'>{title}</span>
     </a>

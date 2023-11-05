@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // secondary-hover is defined in tailwind.config.js, surprised tailwind can just add 'bg-' in front.
-const buttonStyles = cva(['transition-colors'], {
+export const buttonStyles = cva(['transition-colors'], {
   variants: {
     variant: {
       default: ['bg-secondary', 'hover:bg-secondary-hover'],
