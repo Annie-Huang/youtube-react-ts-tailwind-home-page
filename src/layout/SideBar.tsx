@@ -27,6 +27,7 @@ import { twMerge } from 'tailwind-merge';
 import { playlists, subscriptions } from '../data/sidebar.ts';
 
 export const SideBar = () => {
+  // .scrollbar-hidden is defined in src/index.css
   return (
     <>
       <aside className='sticky top-0 overflow-y-auto scrollbar-hidden pb-4 flex flex-col ml-1 lg:hidden'>
