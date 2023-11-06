@@ -13,7 +13,7 @@ import {
 import { Children, ElementType, ReactNode, useState } from 'react';
 import { Button, buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
-import { playlists } from '../data/sidebar.ts';
+import { playlists, subscriptions } from '../data/sidebar.ts';
 
 export const SideBar = () => {
   return (
@@ -69,7 +69,16 @@ export const SideBar = () => {
           ))}
         </LargeSidebarSection>
         <hr />
-        <LargeSidebarSection title='Subscriptions'></LargeSidebarSection>
+        <LargeSidebarSection title='Subscriptions'>
+          {subscriptions.map((subscription) => (
+            <LargeSidebarItem
+              key={subscription.id}
+              IconOrImgUrl={subscription.imgUrl}
+              title={subscription.channelName}
+              url={`/@${subscription.id}`}
+            />
+          ))}
+        </LargeSidebarSection>
       </aside>
     </>
   );
