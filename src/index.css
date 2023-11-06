@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Setting for firefox */
+* {
+  scrollbar-width: thin;
+}
+
 /* The following the chrome browser setting */
 *::-webkit-scrollbar {
   @apply bg-transparent w-2;
