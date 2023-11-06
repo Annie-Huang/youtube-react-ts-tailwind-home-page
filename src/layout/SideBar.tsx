@@ -136,7 +136,7 @@ function LargeSidebarSection({
 }
 
 type LargeSidebarItemProps = {
-  IconOrImgUrl: ElementType;
+  IconOrImgUrl: ElementType | string;
   title: string;
   url: string;
   isActive?: boolean;
@@ -157,7 +157,11 @@ function LargeSidebarItem({
         }`
       )}
     >
-      <IconOrImgUrl className='w-6 h-6' />
+      {typeof IconOrImgUrl === 'string' ? (
+        <img src={IconOrImgUrl} className='w-6 h-6 rounded-full' />
+      ) : (
+        <IconOrImgUrl className='w-6 h-6' />
+      )}
       <span className='whitespace-nowrap overflow-hidden text-ellipsis'>
         {title}
       </span>
