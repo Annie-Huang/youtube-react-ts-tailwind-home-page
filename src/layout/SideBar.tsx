@@ -6,12 +6,14 @@ import {
   History,
   Home,
   Library,
+  ListVideo,
   PlaySquare,
   Repeat,
 } from 'lucide-react';
 import { Children, ElementType, ReactNode, useState } from 'react';
 import { Button, buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
+import { playlists } from '../data/sidebar.ts';
 
 export const SideBar = () => {
   return (
@@ -36,7 +38,7 @@ export const SideBar = () => {
           />
         </LargeSidebarSection>
         <hr />
-        <LargeSidebarSection>
+        <LargeSidebarSection visibleItemCount={5}>
           <LargeSidebarItem Icon={Library} title='Library' url='/library' />
           <LargeSidebarItem Icon={History} title='History' url='/history' />
           <LargeSidebarItem
@@ -49,6 +51,14 @@ export const SideBar = () => {
             title='Watch Later'
             url='/playlist?list=WL'
           />
+          {playlists.map((playlist) => (
+            <LargeSidebarItem
+              key={playlist.id}
+              Icon={ListVideo}
+              title={playlist.name}
+              url={`/playlist?list=${playlist.id}`}
+            />
+          ))}
         </LargeSidebarSection>
       </aside>
     </>
