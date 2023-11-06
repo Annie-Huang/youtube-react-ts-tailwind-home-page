@@ -2,8 +2,11 @@ import {
   ChevronDown,
   ChevronUp,
   Clapperboard,
+  Clock,
+  History,
   Home,
   Library,
+  PlaySquare,
   Repeat,
 } from 'lucide-react';
 import { Children, ElementType, ReactNode, useState } from 'react';
@@ -30,6 +33,21 @@ export const SideBar = () => {
             Icon={Clapperboard}
             title='Subscriptions'
             url='/subscriptions'
+          />
+        </LargeSidebarSection>
+        <hr />
+        <LargeSidebarSection>
+          <LargeSidebarItem Icon={Library} title='Library' url='/library' />
+          <LargeSidebarItem Icon={History} title='History' url='/history' />
+          <LargeSidebarItem
+            Icon={PlaySquare}
+            title='Your Videos'
+            url='/your-videos'
+          />
+          <LargeSidebarItem
+            Icon={Clock}
+            title='Watch Later'
+            url='/playlist?list=WL'
           />
         </LargeSidebarSection>
       </aside>
