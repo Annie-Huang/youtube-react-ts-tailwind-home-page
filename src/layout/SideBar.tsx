@@ -60,6 +60,8 @@ export const SideBar = () => {
             />
           ))}
         </LargeSidebarSection>
+        <hr />
+        <LargeSidebarSection title='Subscriptions'></LargeSidebarSection>
       </aside>
     </>
   );
