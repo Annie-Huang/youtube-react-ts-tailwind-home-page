@@ -30,31 +30,39 @@ export const SideBar = () => {
       </aside>
       <aside className='w-56 lg:sticky absolute top-0 overflow-y-auto scrollbar-hidden pb-4 flex-col gap-2 px-2 flex'>
         <LargeSidebarSection>
-          <LargeSidebarItem isActive Icon={Home} title='Home' url='/' />
+          <LargeSidebarItem isActive IconOrImgUrl={Home} title='Home' url='/' />
           <LargeSidebarItem
-            Icon={Clapperboard}
+            IconOrImgUrl={Clapperboard}
             title='Subscriptions'
             url='/subscriptions'
           />
         </LargeSidebarSection>
         <hr />
         <LargeSidebarSection visibleItemCount={5}>
-          <LargeSidebarItem Icon={Library} title='Library' url='/library' />
-          <LargeSidebarItem Icon={History} title='History' url='/history' />
           <LargeSidebarItem
-            Icon={PlaySquare}
+            IconOrImgUrl={Library}
+            title='Library'
+            url='/library'
+          />
+          <LargeSidebarItem
+            IconOrImgUrl={History}
+            title='History'
+            url='/history'
+          />
+          <LargeSidebarItem
+            IconOrImgUrl={PlaySquare}
             title='Your Videos'
             url='/your-videos'
           />
           <LargeSidebarItem
-            Icon={Clock}
+            IconOrImgUrl={Clock}
             title='Watch Later'
             url='/playlist?list=WL'
           />
           {playlists.map((playlist) => (
             <LargeSidebarItem
               key={playlist.id}
-              Icon={ListVideo}
+              IconOrImgUrl={ListVideo}
               title={playlist.name}
               url={`/playlist?list=${playlist.id}`}
             />
@@ -128,13 +136,13 @@ function LargeSidebarSection({
 }
 
 type LargeSidebarItemProps = {
-  Icon: ElementType;
+  IconOrImgUrl: ElementType;
   title: string;
   url: string;
   isActive?: boolean;
 };
 function LargeSidebarItem({
-  Icon,
+  IconOrImgUrl,
   title,
   url,
   isActive = false,
@@ -149,7 +157,7 @@ function LargeSidebarItem({
         }`
       )}
     >
-      <Icon className='w-6 h-6' />
+      <IconOrImgUrl className='w-6 h-6' />
       <span className='whitespace-nowrap overflow-hidden text-ellipsis'>
         {title}
       </span>
