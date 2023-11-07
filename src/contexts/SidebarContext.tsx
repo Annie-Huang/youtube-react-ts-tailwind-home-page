@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 
 type SidebarProviderProps = {
   children: ReactNode;
@@ -14,7 +14,24 @@ type SidebarContextType = {
 const SidebarContext = createContext<SidebarContextType | null>(null);
 
 export function SidebarProvider({ children }: SidebarProviderProps) {
+  const [isLargeOpen, setIsLargeOpen] = useState(true);
+  const [isSmallOpen, setIsSmallOpen] = useState(false);
+
+  function isScreenSmall() {
+    return window.innerWidth < 1024;
+  }
+  function toggle() {
+    isScreenSmall() ? setIsSmallOpen((s) => !s) : setIsLargeOpen((l) => !l);
+  }
+  function close() {
+    isScreenSmall() ? setIsSmallOpen(false) : setIsLargeOpen(false);
+  }
+
   return (
-    <SidebarContext.Provider value={{}}>{children}</SidebarContext.Provider>
+    <SidebarContext.Provider
+      value={{ isLargeOpen, isSmallOpen, toggle, close }}
+    >
+      {children}
+    </SidebarContext.Provider>
   );
 }
