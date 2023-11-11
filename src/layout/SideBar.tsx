@@ -26,6 +26,7 @@ import { Button, buttonStyles } from '../components/Button.tsx';
 import { twMerge } from 'tailwind-merge';
 import { playlists, subscriptions } from '../data/sidebar.ts';
 import { useSidebarContext } from '../contexts/SidebarContext.tsx';
+import { PageHeaderFirstSection } from './PageHeader.tsx';
 
 export const SideBar = () => {
   const { isLargeOpen, isSmallOpen } = useSidebarContext();
@@ -53,6 +54,7 @@ export const SideBar = () => {
           isLargeOpen ? 'lg:flex' : 'lg:hidden'
         } ${isSmallOpen ? 'flex z-[999] bg-white max-h-screen' : 'hidden'}`}
       >
+        <PageHeaderFirstSection />
         <LargeSidebarSection>
           <LargeSidebarItem isActive IconOrImgUrl={Home} title='Home' url='/' />
           <LargeSidebarItem
