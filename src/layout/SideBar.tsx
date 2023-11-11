@@ -54,7 +54,9 @@ export const SideBar = () => {
           isLargeOpen ? 'lg:flex' : 'lg:hidden'
         } ${isSmallOpen ? 'flex z-[999] bg-white max-h-screen' : 'hidden'}`}
       >
-        <PageHeaderFirstSection />
+        <div className='lg:hidden pt-2 pb-4 px-2 sticky top-0 bg-white'>
+          <PageHeaderFirstSection />
+        </div>
         <LargeSidebarSection>
           <LargeSidebarItem isActive IconOrImgUrl={Home} title='Home' url='/' />
           <LargeSidebarItem
