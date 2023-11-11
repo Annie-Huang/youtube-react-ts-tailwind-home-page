@@ -29,8 +29,7 @@ import { useSidebarContext } from '../contexts/SidebarContext.tsx';
 import { PageHeaderFirstSection } from './PageHeader.tsx';
 
 export const SideBar = () => {
-  const { isLargeOpen, isSmallOpen } = useSidebarContext();
-  console.log('isLargeOpen=', isLargeOpen);
+  const { isLargeOpen, isSmallOpen, close } = useSidebarContext();
 
   // .scrollbar-hidden is defined in src/index.css
   return (
@@ -49,6 +48,12 @@ export const SideBar = () => {
         />
         <SmallSidebarItem Icon={Library} title='Library' url='/library' />
       </aside>
+      {isSmallOpen && (
+        <div
+          onClick={close}
+          className='lg:hidden fixed inset-0 z-[999] bg-secondary-dark opacity-50'
+        />
+      )}
       <aside
         className={`w-56 lg:sticky absolute top-0 overflow-y-auto scrollbar-hidden pb-4 flex-col gap-2 px-2 ${
           isLargeOpen ? 'lg:flex' : 'lg:hidden'
